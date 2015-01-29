@@ -1,0 +1,10 @@
+{
+	"require": {
+		"php": ">=5.4",
+		"ezyang/htmlpurifier": "dev-master",
+		"stevecoug/cohort": "dev-master"
+	},
+	"autoload": {
+		"psr-0": {"Vote": "app/"}
+	}
+}
