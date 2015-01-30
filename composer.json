@@ -5,6 +5,6 @@
 		"stevecoug/cohort": "dev-master"
 	},
 	"autoload": {
-		"psr-0": {"Vote": "app/"}
+		"psr-4": {"OpenCFPVote\\": "app/"}
 	}
 }
