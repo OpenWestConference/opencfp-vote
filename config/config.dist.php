@@ -1,7 +1,5 @@
 <?
 
-require_once "../vendor/autoload.php";
-
 $tmpl_conf = new Cohort\Templates\Config([
 	'template_path' => "/path/to/templates",
 	'site_name' => "Conference Voting",
@@ -9,7 +7,9 @@ $tmpl_conf = new Cohort\Templates\Config([
 	'footer' => "footer.inc",
 ]);
 
-$TEMPLATE = new Cohort\Templates\Page($tmpl_conf);
-$TEMPLATE->set_global("TEMPLATE");
-
-?>
+$db_conf = new Cohort\MySQLi\Config([
+	"host" => "localhost",
+	"schema" => "opencfp",
+	"username" => "opencfp",
+	"password" => "password",
+]);
