@@ -7,7 +7,7 @@ $all_categories = $VOTER->getVotesByCategory();
 	<ul class="nav nav-sidebar">
 		<? foreach ($all_categories as $cat) { ?>
 			<li>
-				<a href="/vote/category/<?=$cat['name']?>">
+				<a href="/vote/<?=$cat['name']?>">
 					<?
 					if ($cat['name'] === $TEMPLATE->category) {
 						printf("<b>%s</b>", $cat['name']);

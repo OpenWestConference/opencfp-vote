@@ -7,5 +7,6 @@ php_value mbstring.func_overload 2
 
 #### EXTENSIONLESS PHP FILES ####
 RewriteEngine On
-RewriteRule ^(vote/category)/[A-Z][A-Za-z/]+$ $1.php [L]
+RewriteRule ^(vote/category)/[A-Z][A-Za-z/]+$ vote/category.php [L]
+RewriteRule ^(vote)/[A-Z][A-Za-z/]+$ vote/category.php [L]
 RewriteRule ^((.*/)?[^/.]+)$ $1.php [L]
