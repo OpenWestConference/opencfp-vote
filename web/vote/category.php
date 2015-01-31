@@ -47,7 +47,7 @@ $TEMPLATE->display("categories.inc");
 							<?=$t['title']?>
 						</a></h4>
 						<div id="desc-<?=$t['id']?>" class="collapse">
-							<?=$t['description']?>
+							<?=nl2br($t['description'])?>
 						</div>
 					</td>
 					<td width="150">
