@@ -36,8 +36,13 @@ $TEMPLATE->display("categories.inc");
 ?>
 
 <div class="admin-content col-sm-9 col-md-10">
-	<p>You don't need to vote in every category. Feel free to pick and choose the categories that you are most interested in.</p>
-	<p>You can click on any of the talk titles to see a full description of the talk.</p>
+	<p>
+		You don't need to vote in every category. Feel free to pick and choose the categories that you are most interested in.
+		A vote of 5 means you are very interested in a topic, while a vote of 1 means that you're not interested.
+	</p>
+	<p>
+		You can click on any of the talk titles to see a full description of the talk.
+	</p>
 	
 	<table class="table table-hover">
 		<thead>

@@ -25,7 +25,8 @@ class Voter {
 		return $this->db->aquery("SELECT t.category AS name, COUNT(t.id) AS num_talks, COUNT(v.talk_id) AS num_votes FROM talks t LEFT JOIN votes v ON v.talk_id=t.id AND v.voter_id=? AND v.rating > 0 GROUP BY t.category", $this->id);
 	}
 	public function getTalksByCategory($category) {
-		return $this->db->aquery("SELECT t.id, t.title, t.description, t.type, t.level, v.rating FROM talks t LEFT JOIN votes v ON v.talk_id=t.id AND v.voter_id=? WHERE t.category=? ORDER BY t.title", $this->id, $category);
+		// All the CONVERT() calls are necessary because the data is double-UTF8-encoded for some reason
+		return $this->db->aquery("SELECT t.id, CONVERT(CONVERT(CONVERT(t.title USING latin1) USING binary) USING utf8mb4) AS title, CONVERT(CONVERT(CONVERT(t.description USING latin1) USING binary) USING utf8mb4) AS description, t.type, t.level, v.rating FROM talks t LEFT JOIN votes v ON v.talk_id=t.id AND v.voter_id=? WHERE t.category=? ORDER BY t.title", $this->id, $category);
 	}
 	public function getHash() {
 		if ($this->hash === false) {
