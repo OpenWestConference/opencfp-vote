@@ -24,6 +24,14 @@ $map_type = [
 	"focus" => "Focus Group",
 ];
 
+$map_ratings = [
+	1 => "Not interested",
+	2 => "Probably not",
+	3 => "Neutral",
+	4 => "Somewhat interested",
+	5 => "Very interested",
+];
+
 $TEMPLATE->display("categories.inc");
 ?>
 
@@ -56,13 +64,13 @@ $TEMPLATE->display("categories.inc");
 					</td>
 					<td class="vote" width="150">
 						<?
-						for ($i = 1; $i <= 5; $i++) {
-							if ($t['rating'] == $i) {
+						foreach ($map_ratings as $r_num => $r_name) {
+							if ($t['rating'] == $r_num) {
 								$btn_class = "btn-success";
 							} else {
 								$btn_class = "";
 							}
-							echo "<button id='vote-{$t['id']}-$i' type='button' class='btn btn-xs $btn_class'>$i</button>\n";
+							echo "<button id='vote-{$t['id']}-$r_num' type='button' class='btn btn-xs $btn_class' title='$r_name'>$r_num</button>\n";
 						}
 						?>
 					</td>
