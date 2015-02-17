@@ -4,13 +4,21 @@ require_once __DIR__."/../vendor/autoload.php";
 require_once __DIR__."/config.php";
 
 function cfp_db() {
-	global $db_conf;
+	global $DB_CONF;
 	static $instance = false;
 	if ($instance === false) {
-		$instance = new Cohort\MySQLi\Connection($db_conf);
+		$instance = new Cohort\MySQLi\Connection($DB_CONF);
 	}
 	return $instance;
 }
+
+
+
+if (time() > strtotime($VOTE_ENDS)) {
+	header("Location: $CONFERENCE_URL");
+	exit();
+}
+
 
 session_start();
 
@@ -27,7 +35,7 @@ if (!isset($_SESSION['voter'])) {
 }
 $VOTER =& $_SESSION['voter'];
 
-$TEMPLATE = new Cohort\Templates\Page($tmpl_conf);
+$TEMPLATE = new Cohort\Templates\Page($TMPL_CONF);
 $TEMPLATE->set_global("TEMPLATE");
 $TEMPLATE->set_global("VOTER");
 
